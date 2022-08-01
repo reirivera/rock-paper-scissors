@@ -1,9 +1,15 @@
+const rock = document.querySelector('#r');
+const paper = document.querySelector('#p');
+const scissor = document.querySelector('#s');
+
+//get an random word from the array
 function computerChoice(){
     const moves = ['r', 'p', 's'];
     let random = Math.floor(Math.random() * 3);
     return moves[random];
 }
 
+//translate that letter into word
 function word (letter){
     if (letter === 'r'){
         return 'rock'
@@ -13,10 +19,9 @@ function word (letter){
         return 'scissor'
     }
 }
-
+//compare each letter and possibilities to win/ lose or ties
 function playRound(playerSelection){
 
- playerSelection = 'r';
  computerSelection = computerChoice();  
     
 switch(playerSelection + computerSelection){
@@ -39,4 +44,21 @@ switch(playerSelection + computerSelection){
 }
 
 console.log(playRound());
+
+//player selection
+function main (){
+    rock.addEventListener('click', function(){
+        playRound('r');
+    })
+    paper.addEventListener('click', function(){
+        playRound('p');
+    })
+    scissor.addEventListener('click', function(){
+       playRound('s');
+    })
+
+}
+
+main();
  
+//make it a round of 5
