@@ -1,11 +1,12 @@
 const rock = document.querySelector('#r');
 const paper = document.querySelector('#p');
 const scissor = document.querySelector('#s');
-const userScore = document.querySelector('.userscore')
+const userScore_span = document.querySelector('.userscore')
+const computerScore_span = document.querySelector('.computerscore');
 const message = document.querySelector('message');
-
 let playerScore = 0;
 let computerScore = 0;
+
 //get an random word from the array
 function computerChoice(){
     const moves = ['r', 'p', 's'];
@@ -67,6 +68,7 @@ main();
 
 function win(playerSelection){
     playerScore++;
+    userScore_span.innerHTML = playerScore;
     console.log('YOU WON!', playerScore, computerScore)
     if(playerScore >= 5){
         alert('YOU WON THE GAME!')
@@ -75,6 +77,7 @@ function win(playerSelection){
 
 function lost(computerSelection){
     computerScore++;
+    computerScore_span.innerHTML = computerScore;
     console.log('YOU LOST!', playerScore, computerScore)
     if (computerScore >= 5){
         alert('THE COMPUTER WINS THE GAME!')
