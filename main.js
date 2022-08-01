@@ -1,7 +1,11 @@
 const rock = document.querySelector('#r');
 const paper = document.querySelector('#p');
 const scissor = document.querySelector('#s');
+const userScore = document.querySelector('.userscore')
+const message = document.querySelector('message');
 
+let playerScore = 0;
+let computerScore = 0;
 //get an random word from the array
 function computerChoice(){
     const moves = ['r', 'p', 's'];
@@ -28,22 +32,21 @@ switch(playerSelection + computerSelection){
     case 'rs':
     case 'pr':
     case 'sp':
-        console.log('YOU WON!')
+        win();
          break;
     case 'rp':
     case 'ps':
     case 'sr':
-        console.log('YOU LOST!')
+        lost();
         break;
     case 'rr':
     case 'pp':
     case 'ss':
-        console.log('IT/S A TIE!')
+        console.log('ITS A TIE!',  playerScore, computerScore)
         break;
 }
 }
 
-console.log(playRound());
 
 //player selection
 function main (){
@@ -61,4 +64,19 @@ function main (){
 
 main();
  
-//make it a round of 5
+
+function win(playerSelection){
+    playerScore++;
+    console.log('YOU WON!', playerScore, computerScore)
+    if(playerScore >= 5){
+        alert('YOU WON THE GAME!')
+    }
+}
+
+function lost(computerSelection){
+    computerScore++;
+    console.log('YOU LOST!', playerScore, computerScore)
+    if (computerScore >= 5){
+        alert('THE COMPUTER WINS THE GAME!')
+    }
+}
