@@ -1,4 +1,4 @@
-
+const btn = document.getElementById('btn');
 
 function computerMove (){
     
@@ -18,25 +18,29 @@ function computerMove (){
 
 function playRound (playerChoice, computerChoice){
     if (playerChoice === 'rock' && computerChoice === 'scissors'){
-        console.log('YOU WON! ROCK BEATS SCISSORS.')
+        return ('YOU WON! ROCK BEATS SCISSORS.')
     }else if (playerChoice === 'paper' && computerChoice === 'rock'){
-        console.log('YOU WON! PAPER BEATS ROCK.')
+        return ('YOU WON! PAPER BEATS ROCK.')
     }else if(playerChoice === 'scissors' && computerChoice ==='paper'){
-        console.log('YOU WON! SCISSORS BEATS PAPER.')
+        return ('YOU WON! SCISSORS BEATS PAPER.')
     }else if (computerChoice === 'rock' && playerChoice === 'scissors'){
-        console.log('YOU LOST! ROCK BEATS SCISSORS.')
+        return ('YOU LOSE! ROCK BEATS SCISSORS.')
     }else if (computerChoice === 'paper' && playerChoice === 'rock'){
-        console.log('YOU LOST! PAPER BEATS ROCK.')
+        return ('YOU LOSE! PAPER BEATS ROCK.')
     }else if(computerChoice === 'scissors' && playerChoice ==='paper'){
-        console.log('YOU LOST! SCISSORS BEATS PAPER.')
+        return ('YOU LOSE! SCISSORS BEATS PAPER.')
     }else if(playerChoice === 'rock' && computerChoice === 'rock'){
-        console.log('ITS A TIE')
+        return ('ITS A TIE')
     }else if(playerChoice === 'paper' && computerChoice === 'paper'){
-        console.log('ITS A TIE')
+        return ('ITS A TIE')
     }else if(playerChoice === 'scissors' && computerChoice === 'scissors'){
-        console.log('ITS A TIE')
+        return ('ITS A TIE')
     }
 }
-const playerSelection = 'rock';
+const playerSelection = prompt('rock / paper/ scissors: ');
 const computerSelection = computerMove();
+let userScore = 0;
+let computerScore = 0;
 console.log(playRound(playerSelection, computerSelection));
+console.log(userScore, computerScore)
+
